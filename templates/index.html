@@ -1,0 +1,267 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SGPGI AI Discharge Summary Generator</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f4c81, #1f6aa5);
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0px 5px 18px rgba(0,0,0,0.15);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .header p {
+            margin-top: 12px;
+            font-size: 17px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .status {
+            margin-top: 15px;
+            font-size: 14px;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0px 4px 14px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #0f4c81;
+            font-size: 26px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #cfd8e3;
+            font-size: 15px;
+            resize: vertical;
+            box-sizing: border-box;
+            background: #fafbfd;
+            line-height: 1.7;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            background: #f5f7fa;
+            border: 1px solid #d5dce5;
+            border-radius: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        button {
+            background: #0f4c81;
+            color: white;
+            border: none;
+            padding: 15px 36px;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0b3b63;
+        }
+
+        .summary-box {
+            background: #f8fbff;
+            border-left: 6px solid #0f4c81;
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .output-textarea {
+            width: 100%;
+            border: none;
+            background: #f8fbff;
+            font-size: 15px;
+            line-height: 1.8;
+            padding: 15px;
+            border-radius: 10px;
+            resize: vertical;
+            box-sizing: border-box;
+            font-family: Consolas, monospace;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 35px;
+            padding-bottom: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>SGPGI AI Discharge Summary Generator</h1>
+
+        <p>
+            OCR • Clinical NLP • Local Llama3 • Automated Discharge Summary Generation
+        </p>
+
+        <div class="status">
+            ● Local Llama3 Connected
+        </div>
+
+    </div>
+
+
+    <!-- INPUT -->
+
+    <div class="card">
+
+        <h2>Patient Data Input</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <label>
+                Upload Clinical Reports
+            </label>
+
+            <br><br>
+
+            <input
+                type="file"
+                name="report_file"
+                accept=".pdf,.png,.jpg,.jpeg"
+                multiple
+            >
+
+            <br><br><br>
+
+            <label>
+                Additional Clinical Notes
+            </label>
+
+            <br><br>
+
+            <textarea
+                name="patient_data"
+                rows="12"
+                placeholder="Enter clinical notes..."
+            ></textarea>
+
+            <div class="button-container">
+
+                <button type="submit">
+                    Generate Discharge Summary
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- EXTRACTED TEXT -->
+
+    <div class="card">
+
+        <h2>Extracted Clinical Text</h2>
+
+        <div class="summary-box">
+
+            <textarea
+                class="output-textarea"
+                rows="18"
+            >{{ extracted_text }}</textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="card">
+
+        <h2>Generated Discharge Summary</h2>
+
+        <div class="summary-box">
+
+            <textarea
+                class="output-textarea"
+                rows="25"
+            >{{ summary }}</textarea>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        SGPGI AI Prototype • Offline Local Clinical AI Pipeline
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+```

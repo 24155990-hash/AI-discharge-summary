@@ -1,0 +1,40 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+paddle_env/
+venv/
+.venv/
+
+# Uploaded files and clinical documents
+uploads/
+*.pdf
+*.jpeg
+*.jpg
+*.png
+
+# Extracted text and generated output
+extracted_text/
+output/
+generated_summaries/
+
+# Secrets
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+
+# Local OCR test scripts
+ocr_image_test.py
+yay.py
+
+
+# Local OCR test scripts
+ocr_image_test.py
+yay.py
